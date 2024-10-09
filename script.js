@@ -2,8 +2,8 @@
 document.getElementById('loginForm').addEventListener('submit', function (event) {
 	event.preventDefault();
 
-	var username = document.getElementById('usernamme').value;
-	var password = document.getElementById('password').value
+	var username = document.getElementById('usernamme');
+	var password = document.getElementById('password').value;
 	var rememberMe = document.getElementById('rememberMe').checked;
 
 	if(rememberMe){
