@@ -1,41 +1,38 @@
-//your JS code here. If required.
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+const loginForm = document.getElementById("loginForm");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const rememberMeCheckbox = document.getElementById("rememberMe");
+const existingButton = document.getElementById("existing");
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const rememberMe = document.getElementById('checkbox').checked;
+loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    if (rememberMe) {
-   
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if (rememberMeCheckbox.checked) {
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
     } else {
-   
-        localStorage.removeItem('username');
-        localStorage.removeItem('password');
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
     }
 
-    alert(`Logged in as ${username}`);
-    checkExistingUser();
-});
+    alert("Logged in as " + username);
 
-function checkExistingUser() {
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-     
-        document.getElementById('existing').style.display = 'block';
-    } else {
-     
-        document.getElementById('existing').style.display = 'none';
-    }
-}
-
-document.getElementById('existing').addEventListener('click', function () {
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-        alert(`Logged in as ${storedUsername}`);
+    if (existingButton.style.display === "none") {
+        existingButton.style.display = "block";
     }
 });
 
-checkExistingUser();
+window.onload = () => {
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
+
+    if (storedUsername && storedPassword) {
+        usernameInput.value = storedUsername;
+        passwordInput.value = storedPassword;
+        rememberMeCheckbox.checked = true;
+        existingButton.style.display = "block";
+    }
+};

@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
 
-	<h1>Login Form</h1>
-    <form id="loginForm">
-		 <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Username"><br>
-       <label for="password">Password:</label>
-		<input type="password" id="password" placeholder="Password"><br>
-        <input type="checkbox" id="checkbox">
-        <label for="checkbox">Remember me:</label><br><br>
-        <input type="submit" id="submit" value="Submit">
-    </form>
-    <button id="existing" class="existing-user" style="display:none;">Login as existing user</button>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
 
-	
-	<script type="text/javascript" src="./script.js">
-</script>
+            <label for="rememberMe">Remember me:</label>
+            <input type="checkbox" id="rememberMe" name="rememberMe"><br><br>
 
+            <button type="submit">Login</button>
+
+            <button id="existing" style="display: none;">Login as existing user</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
 </body>
-
 </html>
